@@ -4,11 +4,11 @@
 # --- !Ups
 
 create table libro (
-  pk                            integer not null,
+  id                            integer not null,
   titulo                        varchar(255),
   autor                         varchar(255),
   precio                        float,
-  constraint pk_libro primary key (pk)
+  constraint pk_libro primary key (id)
 );
 create sequence libro_seq;
 
