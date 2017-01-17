@@ -12,4 +12,4 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 POST    /agregado                   controllers.HomeController.agregado
 
-POST    /eliminado                  controllers.HomeController.eliminado
+GET     /lista                  controllers.HomeController.Consultar

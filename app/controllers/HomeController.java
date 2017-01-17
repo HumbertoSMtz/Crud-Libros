@@ -3,12 +3,16 @@ package controllers;
 import play.mvc.*;
 
 import views.html.*;
-import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
 import models.Libro;
 
+import java.util.*;
 import javax.inject.Inject;
+import com.avaje.ebean.Model;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 
 
 
@@ -42,8 +46,24 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.index());
     }
     
-    public Result eliminado() {
-        return ok(delete.render("Home"));
+    public Result borrar() {
+        Form<Libro> userForm = formFactory.form(Libro.class);
+        Libro book = userForm.bindFromRequest().get();
+        book.delete();
+        return redirect(routes.HomeController.index());
+    }
+    
+   public Result Consultar() throws IOException {
+       String aux="";
+        Model.Finder<Integer, Libro> finder = new Model.Finder<>(Libro.class);
+        List<Libro> libros = finder.all();
+        List<String> books=new ArrayList<String>();
+        for (int i = 0; i < libros.size(); i++) {
+          books.add(libros.get(i).toString());  
+       }
+        
+        
+        return ok(mostrar.render(libros));
     }
 
 }
