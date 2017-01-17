@@ -20,8 +20,12 @@ public class HomeController extends Controller {
         return ok(index.render("Home"));
     }
     
-    public Result Agregado() {
+    public Result agregado() {
         return ok(creado.render("Home"));
+    }
+    
+    public Result eliminado() {
+        return ok(delete.render("Home"));
     }
 
 }
