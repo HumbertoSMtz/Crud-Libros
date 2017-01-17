@@ -31,6 +31,10 @@ public class HomeController extends Controller {
         return ok(index.render("Home"));
     }
     
+    public Result crear() {
+        return ok(creado.render("Agregar"));
+    }
+    
     public Result agregado() {
         Form<Libro> userForm = formFactory.form(Libro.class);
         Libro book = userForm.bindFromRequest().get();
@@ -41,4 +45,5 @@ public class HomeController extends Controller {
     public Result eliminado() {
         return ok(delete.render("Home"));
     }
+
 }
