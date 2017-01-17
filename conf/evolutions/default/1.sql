@@ -4,15 +4,17 @@
 # --- !Ups
 
 create table libro (
-  id                            varchar(255) not null,
+  pk                            integer not null,
   titulo                        varchar(255),
   autor                         varchar(255),
   precio                        float,
-  constraint pk_libro primary key (id)
+  constraint pk_libro primary key (pk)
 );
+create sequence libro_seq;
 
 
 # --- !Downs
 
 drop table if exists libro;
+drop sequence if exists libro_seq;
 

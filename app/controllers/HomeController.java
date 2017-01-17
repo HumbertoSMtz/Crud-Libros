@@ -41,5 +41,4 @@ public class HomeController extends Controller {
     public Result eliminado() {
         return ok(delete.render("Home"));
     }
-
 }
