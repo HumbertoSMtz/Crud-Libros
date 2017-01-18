@@ -46,15 +46,6 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.index());
     }
     
-    public Result borrar() {
-        Form<Libro> userForm = formFactory.form(Libro.class);
-        Libro book = userForm.bindFromRequest().get();
-       List<Libro> bars = Libro.find.where().eq("titulo", book.getTitulo()).findList();
-for (Bar bar : bars) {
-    bar.delete();
-}
-    }
-    
    public Result Consultar() throws IOException {
        String aux="";
         Model.Finder<Integer, Libro> finder = new Model.Finder<>(Libro.class);
