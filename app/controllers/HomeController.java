@@ -49,8 +49,10 @@ public class HomeController extends Controller {
     public Result borrar() {
         Form<Libro> userForm = formFactory.form(Libro.class);
         Libro book = userForm.bindFromRequest().get();
-        book.delete();
-        return redirect(routes.HomeController.index());
+       List<Libro> bars = Libro.find.where().eq("titulo", book.getTitulo()).findList();
+for (Bar bar : bars) {
+    bar.delete();
+}
     }
     
    public Result Consultar() throws IOException {
