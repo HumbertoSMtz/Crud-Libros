@@ -11,6 +11,5 @@ GET     /crear                           controllers.HomeController.crear
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 POST    /agregado                   controllers.HomeController.agregado
-POST    /borrar                   controllers.HomeController.borrar
 
 GET     /lista                  controllers.HomeController.Consultar
