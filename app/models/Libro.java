@@ -23,4 +23,8 @@ public class Libro extends Model{
     public String titulo;
     public String autor;
     public float precio;
+    
+    public String toString (){
+        return "Titulo: "+titulo+"Autor: "+autor+" Precio: $"+precio;
+    }
 }
